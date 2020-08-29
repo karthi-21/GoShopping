@@ -10,7 +10,7 @@
       <div *ngIf="getProductQuantity() > 0; else addToCartButton">
         <button class="btn btn-outline-danger" *ngIf="getProductQuantity() > 1" (click)="updateToCart(-1)">-</button>
         <button class="btn btn-outline-warning" *ngIf="getProductQuantity() === 1" (click)="removeFromCart()">-</button>
-        <span class="pl-4 pr-4">{{ getProductQuantity(product) }}</span>
+        <span class="pl-4 pr-4">{{ getProductQuantity() }}</span>
         <button class="btn btn-outline-success" (click)="updateToCart(1)" [disabled]="disableAdd">+</button>
       </div>
       <ng-template #addToCartButton>
