@@ -11,7 +11,7 @@
           <!-- <th scope="col">Image</th> -->
           <th scope="col">Name</th>
           <th scope="col">Price</th>
-          <th scope="col">quantity</th>
+          <th scope="col">No. of Items</th>
           <th scope="col">Subtotal</th>
           <th scope="col"></th>
         </tr>
@@ -23,25 +23,30 @@
             <img [src]="item.image" alt="product-image" width="100px" class="product-image img-shadow">
           </td> -->
           <td>
-            {{ item.name }}
+            {{ item.product.name }}
           </td>
           <td>
-            {{ item.price }}
+            {{ item.product.price | currency:'INR' }}
           </td>
           <td>
-            x <b>1</b>
+            <button class="btn btn-outline-danger no-bor-no-bg" *ngIf="item.quantity > 1"
+              (click)="updateToCart(item.product, -1, item.quantity)">-</button>
+            <button class="btn btn-outline-warning no-bor-no-bg" *ngIf="item.quantity === 1"
+              (click)="removeFromCart(item.product)">-</button>
+            <input type="text" class="quantity" id="quantity" [value]="item.quantity">
+            <button class="btn btn-outline-success no-bor-no-bg" (click)="updateToCart(item.product, 1, item.quantity)">+</button>
           </td>
           <td>
-            {{ item.price }}
+            {{ item.product.price * item.quantity | currency:'INR' }}
           </td>
           <td>
-            <button class="remove-btn" (click)="removeFromCart(item)">
+            <button class="remove-btn" (click)="removeFromCart(item.product)">
               remove
             </button>
           </td>
         </tr>
         <tr>
-          <td colspan="4"></td>
+          <td colspan="3"></td>
           <td><b>Total:</b></td>
           <td>{{ getTotal() | currency:'INR' }}</td>
         </tr>

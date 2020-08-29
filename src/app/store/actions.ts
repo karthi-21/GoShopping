@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Product } from '../model/product';
+import { Cart } from '../model/cart';
 
 export enum ActionTypes {
   Add = '[Product] Add to cart',
@@ -18,7 +19,7 @@ export class AddToCart implements Action {
 export class UpdateToCart implements Action {
   readonly type = ActionTypes.Update;
 
-  constructor(public payload: Product) { }
+  constructor(public payload: Product, public quantity: number) { }
 }
 
 export class RemoveFromCart implements Action {

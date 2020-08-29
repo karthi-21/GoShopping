@@ -3,15 +3,22 @@
   <div class="card-body" (click)="openProductDetail()">
     <h5 class="card-title">{{ product.name }}</h5>
     <p class="card-text text-right">{{ product.price | currency:'INR' }}</p>
+    <p class="card-text text-right">quantity left: {{ quantity }}</p>
   </div>
   <div class="footer">
-    <div class="product-actions">
-      <button class="btn btn-outline-warning add-to-cart-btn" (click)="addToCart(product)" *ngIf="!inCart">Add to <span class="text-cart">cart </span>
-        <fa-icon [icon]="faCartPlus"></fa-icon>
-      </button>
-      <button class="btn btn-outline-danger  add-to-cart-btn" (click)="removeFromCart(product)" *ngIf="inCart">Remove
-        <fa-icon [icon]="faCartArrowDown"></fa-icon>
-      </button>
+    <div class="product-actions text-center">
+      <div *ngIf="getProductQuantity() > 0; else addToCartButton">
+        <button class="btn btn-outline-danger" *ngIf="getProductQuantity() > 1" (click)="updateToCart(-1)">-</button>
+        <button class="btn btn-outline-warning" *ngIf="getProductQuantity() === 1" (click)="removeFromCart()">-</button>
+        <span class="pl-4 pr-4">{{ getProductQuantity(product) }}</span>
+        <button class="btn btn-outline-success" (click)="updateToCart(1)" [disabled]="disableAdd">+</button>
+      </div>
+      <ng-template #addToCartButton>
+        <button class="btn btn-outline-warning add-to-cart-btn" (click)="addToCart()">
+          Add to <span class="text-cart">cart </span>
+          <fa-icon [icon]="faCartPlus"></fa-icon>
+        </button>
+      </ng-template>
     </div>
   </div>
 </div>

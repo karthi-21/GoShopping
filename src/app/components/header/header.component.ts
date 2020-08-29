@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
     store.pipe(select('shop')).subscribe((data: any) => (this.cart = data.cart));
   }
 
-
   ngOnInit() {
   }
 

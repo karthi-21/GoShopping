@@ -17,6 +17,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { PageNotFoundComponentComponent } from './reusable-components/page-not-found-component/page-not-found-component.component';
 import { ProductCardComponent } from './reusable-components/product-card/product-card.component';
 import { ShoppingCartPageComponent } from './components/shopping-cart-page/shopping-cart-page.component';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,8 @@ import { ShoppingCartPageComponent } from './components/shopping-cart-page/shopp
     PopoverModule,
     StoreModule.forRoot({ shop: ShopReducer }),
     EffectsModule.forRoot([ShopEffects]),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -31,9 +31,9 @@
       <div *ngIf="cart.length > 0; else elseTemplate">
         <ng-container *ngFor="let item of cart; let i=index">
           <div *ngIf="i < 4" class="text-centre">
-            <img [src]="item.image" width="15px">
-            <span class="cart-item-name">{{ item.name }}</span>
-            <span>x1</span>
+            <img [src]="item.product.image" width="15px">
+            <span class="cart-item-name">{{ item.product.name }}</span>
+            <span>x {{ item.quantity }}</span>
           </div>
         </ng-container>
         <div *ngIf="cart.length > 3;" class="text-centre">
