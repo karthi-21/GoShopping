@@ -6,4 +6,4 @@ GoShopping is an e-commerce app template generated with [Angular CLI](https://gi
 Here is a demo, running on GitHub pages. [click here](https://karthi-21.github.io/GoShopping)
 
 ## To run the project on local
-To run this app first you need to install all npm packages by simply running 'npm i' command, then 'ng serve'.
+To run this app first you need to install all npm packages by simply running `npm i` command, then `ng serve`.
