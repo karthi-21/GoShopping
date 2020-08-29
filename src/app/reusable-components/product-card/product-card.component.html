@@ -1,6 +1,6 @@
-<div class="card" (click)="openProductDetail()">
-  <img class="card-img-top img-shadow" [src]="product.image" alt="Card image cap">
-  <div class="card-body">
+<div class="card">
+  <img class="card-img-top img-shadow" (click)="openProductDetail()" [src]="product.image" alt="Card image cap">
+  <div class="card-body" (click)="openProductDetail()">
     <h5 class="card-title">{{ product.name }}</h5>
     <p class="card-text text-right">{{ product.price | currency:'INR' }}</p>
   </div>
