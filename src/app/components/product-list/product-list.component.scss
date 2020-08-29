@@ -1,0 +1,22 @@
+.card-deck {
+  flex-flow: row !important;
+  overflow: hidden;
+}
+
+.card-container {
+  width: 100%;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: flex;
+  padding: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.card-container ::-webkit-scrollbar {
+  display: none;
+  width: 0px !important;
+}

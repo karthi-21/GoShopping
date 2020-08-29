@@ -1,0 +1,20 @@
+<div *ngIf="products.length > 0">
+  <h4 class="mt-2 mb-2">New Arraivals:</h4>
+  <div class="card-container">
+    <app-product-card [product]="product" *ngFor="let product of products"></app-product-card>
+  </div>
+
+  <h4 class="mt-4 mb-2">Popular:</h4>
+  <div class="card-container">
+    <app-product-card [product]="product" *ngFor="let product of products"></app-product-card>
+  </div>
+
+  <h4 class="mt-4 mb-2">Regular incomings:</h4>
+  <div class="card-container">
+    <app-product-card [product]="product" *ngFor="let product of products"></app-product-card>
+  </div>
+</div>
+
+<ngx-spinner type = "ball-climbing-dot">
+  <p style="color: white" > Loading... </p>
+</ngx-spinner>

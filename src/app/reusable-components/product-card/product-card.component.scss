@@ -1,0 +1,70 @@
+.card {
+  cursor: pointer;
+  width: 12rem;
+  border: none;
+  margin-right: 20px;
+}
+
+.card-img-top {
+  border-radius: 7px;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  border-radius: 20px;
+  border: none;
+}
+
+.footer {
+  padding: 0px 10px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 8rem;
+  }
+  .text-cart {
+    display: none;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .card {
+    width: 8rem;
+  }
+  .text-cart {
+    display: none;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .card {
+    width: 8rem;
+  }
+  .text-cart {
+    display: none;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .card {
+    width: 12rem;
+  }
+  .text-cart {
+    display: inline;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .card {
+    width: 12rem;
+  }
+  .text-cart {
+    display: inline;
+  }
+}

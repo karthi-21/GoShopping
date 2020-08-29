@@ -1,0 +1,62 @@
+<h3>Basket</h3>
+<div *ngIf="cart.length >0">
+  <p>All items you added have been displayed below, please click checkout to place an order.</p>
+
+  <div class="table-responsive">
+    <table class="table table-borderless">
+      <caption>List of items added to cart</caption>
+      <thead>
+        <tr>
+          <th scope="col">S.No.</th>
+          <!-- <th scope="col">Image</th> -->
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">quantity</th>
+          <th scope="col">Subtotal</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cart; let i = index">
+          <th scope="row">{{ i }}</th>
+          <!-- <td>
+            <img [src]="item.image" alt="product-image" width="100px" class="product-image img-shadow">
+          </td> -->
+          <td>
+            {{ item.name }}
+          </td>
+          <td>
+            {{ item.price }}
+          </td>
+          <td>
+            x <b>1</b>
+          </td>
+          <td>
+            {{ item.price }}
+          </td>
+          <td>
+            <button class="remove-btn" (click)="removeFromCart(item)">
+              remove
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4"></td>
+          <td><b>Total:</b></td>
+          <td>{{ getTotal() | currency:'INR' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button class="btn btn-outline-success">Checkout</button>
+</div>
+
+<div *ngIf="cart.length === 0">
+  <p>Seems you haven't added any item to your cart, please
+    <a routerLink="/home" routerLinkActive="active"> continue shopping </a>
+  </p>
+  <div class="text-center">
+    <img src="../../assets/empty-cart.png" alt="empty cart" class="empty-cart-img">
+  </div>
+</div>
