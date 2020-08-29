@@ -3,7 +3,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { select, Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { Product } from 'src/app/model/product';
-import { RemoveFromCart, UpdateToCart } from 'src/app/store/actions';
+import { RemoveFromCart, UpdateToCart, ResetCart } from 'src/app/store/actions';
 import { Cart } from '../../model/cart';
 import { ToastrService } from 'ngx-toastr';
 
@@ -37,7 +37,9 @@ export class ShoppingCartPageComponent implements OnInit {
   }
 
   updateToCart(product: Product, quantity: number, itemQuantity: number) {
-    if (itemQuantity < this.getProductQuantity(product)) {
+    if (quantity === 1 && itemQuantity < this.getProductQuantity(product)) {
+      this.store.dispatch(new UpdateToCart(product, quantity));
+    } else if (quantity === -1) {
       this.store.dispatch(new UpdateToCart(product, quantity));
     } else {
       this.toastr.error('Out of Stock!', 'Sorry, we have only '
@@ -53,5 +55,10 @@ export class ShoppingCartPageComponent implements OnInit {
   getProductQuantity(product: Product) {
     const productItem = this.products.find((item: Product) => item.id === product.id);
     return productItem !== undefined ? productItem.quantity : 0;
+  }
+
+  checkout() {
+    this.store.dispatch(new ResetCart());
+    this.toastr.success('Order confirmed', 'yay! your order has been placed successfully');
   }
 }

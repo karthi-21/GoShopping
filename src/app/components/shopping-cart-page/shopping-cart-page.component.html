@@ -54,11 +54,11 @@
     </table>
   </div>
 
-  <a routerLink="/home" routerLinkActive="active" class="btn btn-outline-success"> continue shopping </a>
+  <button class="btn btn-outline-success" (click)="checkout()"> continue shopping </button>
 </div>
 
 <div *ngIf="cart.length === 0">
-  <p>Seems you haven't added any item to your cart, please
+  <p>Seems you don't have any items in your cart, please
     <a routerLink="/home" routerLinkActive="active"> continue shopping </a>
   </p>
   <div class="text-center">

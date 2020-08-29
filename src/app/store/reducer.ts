@@ -35,6 +35,12 @@ export function ShopReducer(state = initialState, action: ActionsUnion) {
         })
       };
 
+    case ActionTypes.Reset:
+      return {
+        ...state,
+        cart: []
+      };
+
     default:
       return state;
   }

@@ -48,12 +48,16 @@ export class ProductCardComponent implements OnInit {
   }
 
   removeFromCart() {
+    this.quantity++;
     this.store.dispatch(new RemoveFromCart(this.product));
   }
 
   updateToCart(quantity: number) {
-    if (this.getProductQuantity() < Number(this.product.quantity)) {
+    if (quantity === 1 && this.getProductQuantity() < Number(this.product.quantity)) {
       this.quantity = quantity === 1 ? this.quantity - 1 : this.quantity + 1;
+      this.store.dispatch(new UpdateToCart(this.product, quantity));
+    } else if (quantity === -1) {
+      this.quantity = this.quantity + 1;
       this.store.dispatch(new UpdateToCart(this.product, quantity));
     } else {
       this.disableAdd = true;
