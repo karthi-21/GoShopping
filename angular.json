@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "e-commerce-poc": {
+    "go-shopping": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/e-commerce-poc",
+            "outputPath": "dist/go-shopping",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "e-commerce-poc:build"
+            "browserTarget": "go-shopping:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "e-commerce-poc:build:production"
+              "browserTarget": "go-shopping:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "e-commerce-poc:build"
+            "browserTarget": "go-shopping:build"
           }
         },
         "test": {
@@ -119,15 +119,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "e-commerce-poc:serve"
+            "devServerTarget": "go-shopping:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "e-commerce-poc:serve:production"
+              "devServerTarget": "go-shopping:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "e-commerce-poc"
+  "defaultProject": "go-shopping"
 }
